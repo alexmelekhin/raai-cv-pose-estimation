@@ -1,4 +1,7 @@
-docker run -it --rm --gpus=all \
+#!/bin/bash
+
+docker run -it -d --rm --gpus=all \
+    --shm-size=16g \
     -p 8888:8888  \
     --name pytorch_cv_project \
     -v /data/datasets:/datasets:rw \

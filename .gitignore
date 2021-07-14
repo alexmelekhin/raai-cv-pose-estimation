@@ -1,4 +1,6 @@
 .vscode
+baselines/AlphaPose/data
+baselines/AlphaPose/detector/yolo/data
 
 ### DEFAULT PYTHON GITIGNORE:
 
