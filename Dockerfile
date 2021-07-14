@@ -62,15 +62,10 @@ COPY ./baselines/AlphaPose /baselines/AlphaPose
 WORKDIR /baselines/AlphaPose
 RUN export PATH=/usr/local/cuda/bin/:$PATH && \
     export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:$LD_LIBRARY_PATH
-
-# !!! данные команды нужно выполнить внутри контейнера, иначе почему-то не работает
-# RUN apt-get install gfortran
-# RUN python3 setup.py build develop --user
-
-# installing pycocotools separately from main installation
-RUN echo "\n===>\nINSTALLING PYCOCOTOOLS\n" && \
-    pip install pycocotools
-
+RUN apt-get install -y gfortran
+RUN python3 setup.py build develop --user
+RUN apt-get install -y python3-tk
+RUN pip install pycocotools tk
 
 # Jupyter notebook server installation
 RUN echo "\n===>\nINSTALLING JUPYTER\n" && \
