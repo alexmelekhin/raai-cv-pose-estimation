@@ -1,6 +1,6 @@
 # Pose estimation project for RAAI summer school's CV track
 
-Baseline forr this project is entirely based on [AlphaPose multi-person pose estimator](https://github.com/MVIG-SJTU/AlphaPose).
+Baseline for this project is entirely based on [AlphaPose multi-person pose estimator](https://github.com/MVIG-SJTU/AlphaPose).
 
 ## Instructions
 
