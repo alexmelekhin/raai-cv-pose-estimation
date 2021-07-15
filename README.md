@@ -8,6 +8,7 @@ Baseline for this project is entirely based on [AlphaPose multi-person pose esti
     ```shell
     cd baselines/
     git clone https://github.com/MVIG-SJTU/AlphaPose.git
+    cd AlphaPose/
     git pull origin pull/592/head
     ```
 
