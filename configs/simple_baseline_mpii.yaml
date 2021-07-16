@@ -1,10 +1,10 @@
 # 256x192_res50_lr1e-3_1x-simple
 DATASET:
   TRAIN:
-    TYPE: 'Mscoco'
-    ROOT: './data/coco/'
-    IMG_PREFIX: 'train2017'
-    ANN: 'annotations/person_keypoints_train2017.json'
+    TYPE: 'Mpii'
+    ROOT: './data/mpii/'
+    IMG_PREFIX: 'images'
+    ANN: 'annot_mpii.json'
     AUG:
       FLIP: true
       ROT_FACTOR: 40
@@ -12,20 +12,20 @@ DATASET:
       NUM_JOINTS_HALF_BODY: 8
       PROB_HALF_BODY: -1
   VAL:
-    TYPE: 'Mscoco'
-    ROOT: './data/coco/'
-    IMG_PREFIX: 'val2017'
-    ANN: 'annotations/person_keypoints_val2017.json'
+    TYPE: 'Mpii'
+    ROOT: './data/mpii/'
+    IMG_PREFIX: 'images'
+    ANN: 'annot_mpii.json'
   TEST:
-    TYPE: 'Mscoco_det'
-    ROOT: './data/coco/'
-    IMG_PREFIX: 'val2017'
+    TYPE: 'Mpii'
+    ROOT: './data/mpii/'
+    IMG_PREFIX: 'images'
     DET_FILE: './exp/json/test_det_yolo.json'
-    ANN: 'annotations/person_keypoints_val2017.json'
+    ANN: 'annot_mpii.json'
 DATA_PRESET:
   TYPE: 'simple'
   SIGMA: 2
-  NUM_JOINTS: 17
+  NUM_JOINTS: 16
   IMAGE_SIZE:
   - 256
   - 192
@@ -45,17 +45,17 @@ LOSS:
   TYPE: 'MSELoss'
 DETECTOR:
   NAME: 'yolo'
-  CONFIG: 'detector/yolo/cfg/yolov3-spp.cfg'
-  WEIGHTS: 'detector/yolo/data/yolov3-spp.weights'
+  CONFIG: '/baselines/AlphaPose/detector/yolo/cfg/yolov3-spp.cfg'
+  WEIGHTS: '/baselines/AlphaPose/detector/yolo/data/yolov3-spp.weights'
   NMS_THRES: 0.6
   CONFIDENCE: 0.1
 TRAIN:
   WORLD_SIZE: 4
-  BATCH_SIZE: 128
+  BATCH_SIZE: 256
   BEGIN_EPOCH: 0
   END_EPOCH: 20
   OPTIMIZER: 'adam'
-  LR: 0.004
+  LR: 0.008
   LR_FACTOR: 0.1
   LR_STEP:
   - 90

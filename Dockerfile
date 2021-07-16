@@ -43,7 +43,7 @@ RUN echo "\n===>\nINSTALLING PYTHON AND NECCESSARY DEPENDENCIES\n" && \
 
 # PyTorch installation
 RUN echo "\n===>\nINSTALLING PYTORCH\n" && \
-    pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+    pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 
 # Python dependencies
 COPY requirements.txt .
@@ -65,9 +65,10 @@ RUN export PATH=/usr/local/cuda/bin/:$PATH && \
 RUN apt-get install -y gfortran
 RUN python3 setup.py build develop --user
 RUN apt-get install -y python3-tk
-RUN pip install pycocotools tk
+RUN pip install pycocotools tk wandb
 
 # Jupyter notebook server installation
 RUN echo "\n===>\nINSTALLING JUPYTER\n" && \
     pip install jupyter && \
-    echo "jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root" > ./start_jupyter.sh
+    echo "jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root" > /start_jupyter.sh && \
+    mkdir /notebooks
