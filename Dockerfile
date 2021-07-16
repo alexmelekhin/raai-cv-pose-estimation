@@ -73,6 +73,8 @@ RUN echo "\n===>\nINSTALLING JUPYTER\n" && \
     echo "jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root" > /start_jupyter.sh && \
     mkdir /notebooks
 
+WORKDIR /
+
 # ROS Noetic
 RUN apt-get update && apt-get install --no-install-recommends -y \
         gnupg \
