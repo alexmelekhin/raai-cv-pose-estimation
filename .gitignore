@@ -2,6 +2,7 @@
 baselines/AlphaPose/data
 baselines/AlphaPose/detector/yolo/data
 exp/
+examples/
 
 ### DEFAULT PYTHON GITIGNORE:
 
