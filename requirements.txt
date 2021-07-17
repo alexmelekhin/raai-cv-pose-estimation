@@ -4,3 +4,4 @@ matplotlib
 cython 
 tqdm
 tensorboardX
+seaborn

@@ -93,4 +93,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     rosdep update && \
     rm -rf /var/lib/apt/lists/*
 
+RUN apt update && apt install -y libnvidia-gl-440
+
 EXPOSE 22

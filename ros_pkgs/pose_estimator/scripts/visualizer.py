@@ -19,7 +19,7 @@ class VisualizerNode:
         pose_sub = message_filters.Subscriber('pose_estimation', Image)
 
         self.ts = message_filters.ApproximateTimeSynchronizer([image_sub, pose_sub], 10, 5)
-        self.ts.registerCallback(self.on_image_segm)
+        self.ts.registerCallback(self.on_image_pose)
 
         # TODO: write pose estimation
         # self.pub = rospy.Publisher('pose_estimation_color', Image, queue_size=10)
